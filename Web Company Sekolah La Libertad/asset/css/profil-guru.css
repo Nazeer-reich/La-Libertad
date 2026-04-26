@@ -1,0 +1,435 @@
+/*
+ * profil-guru.css
+ * Halaman Profil Guru – SMK La Libertad
+ * Style khusus halaman ini; bergantung pada style.css utama untuk
+ * variabel (:root), navbar, footer, dan komponen global.
+ */
+
+/* ── CSS Variables (mirror dari style.css) ─────────────────────────── */
+:root {
+    --Primary: #1c282e;
+    --Secondary: #fff;
+    --Accent: #161c1f;
+    --CTA: #e6bf23;
+    --CTA-hover: #e8b708;
+    --text-muted: #7f8c8d;
+    --text-dark: #333;
+    --text-body: #555;
+    --bg-light: #f8f9fa;
+    --radius-card: 12px;
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.14);
+    --transition: all 0.3s ease;
+}
+
+/* ── Page Hero ──────────────────────────────────────────────────────── */
+.page-hero {
+    position: relative;
+    height: 320px;
+    background-color: var(--Primary);
+    background-image:
+        linear-gradient(135deg, rgba(28, 40, 46, 0.95) 0%, rgba(22, 28, 31, 0.85) 100%);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Decorative top-right glow */
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(230, 191, 35, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.page-hero-overlay {
+    display: none; /* overlay handled by background-image gradient */
+}
+
+.page-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    color: #fff;
+}
+
+.page-hero-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--CTA);
+    margin-bottom: 10px;
+}
+
+.page-hero-title {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+.page-hero-sub {
+    font-size: 16px;
+    color: #bdc3c7;
+    max-width: 520px;
+}
+
+/* ── Shared Section Headings ────────────────────────────────────────── */
+.section-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--Primary);
+    margin-bottom: 10px;
+}
+
+.section-sub {
+    font-size: 15px;
+    color: var(--text-body);
+    max-width: 620px;
+    line-height: 1.7;
+    margin-bottom: 50px;
+}
+
+/* ── Kepala Sekolah Section ─────────────────────────────────────────── */
+.kepsek-section {
+    background-color: #fff;
+    padding: 80px 40px;
+}
+
+.kepsek-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.kepsek-card {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 60px;
+    align-items: center;
+    background: var(--bg-light);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 40px;
+    box-shadow: var(--shadow-card);
+    border-left: 6px solid var(--CTA);
+}
+
+.kepsek-photo-wrap {
+    position: relative;
+    height: 400px;
+    background: var(--Primary);
+}
+
+.kepsek-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Fallback jika foto belum ada */
+.kepsek-photo-wrap .kepsek-photo[src=""] {
+    display: none;
+}
+
+.kepsek-info {
+    padding: 48px 50px 48px 0;
+}
+
+.kepsek-tag {
+    display: inline-block;
+    background: var(--CTA);
+    color: var(--Primary);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    margin-bottom: 16px;
+}
+
+.kepsek-name {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--Primary);
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.kepsek-jabatan {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kepsek-desc {
+    font-size: 15px;
+    color: var(--text-body);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    text-align: justify;
+}
+
+.kepsek-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.meta-icon {
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+/* ── Guru Grid Section ──────────────────────────────────────────────── */
+.guru-section {
+    background-color: var(--bg-light);
+    padding: 80px 40px;
+}
+
+.guru-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.guru-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+}
+
+/* ── Guru Card ──────────────────────────────────────────────────────── */
+.guru-card {
+    background: #fff;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.guru-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Photo area */
+.guru-photo-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, var(--Primary) 0%, #2c3e50 100%);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.guru-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.guru-card:hover .guru-photo {
+    transform: scale(1.06);
+}
+
+/*
+ * Inisial tampil sebagai fallback.
+ * Saat foto berhasil dimuat, inisial tersembunyi di belakang foto.
+ * Saat foto GAGAL dimuat (onerror / src tidak ditemukan), foto
+ * disembunyikan lewat JS atau class, dan inisial muncul.
+ */
+.photo-initials {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 2px;
+    z-index: 1;
+    /* Foto berada di atas (z-index default 0 auto), jadi inisial
+       terlihat hanya jika foto transparan / gagal */
+    pointer-events: none;
+}
+
+.guru-photo {
+    position: relative;
+    z-index: 2; /* tutup inisial saat foto berhasil */
+}
+
+/* Badge jabatan di sudut foto */
+.guru-jabatan-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--CTA);
+    color: var(--Primary);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 12px;
+    border-radius: 50px;
+    white-space: nowrap;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Info area */
+.guru-info {
+    padding: 18px 16px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.guru-card:hover .guru-info {
+    border-top-color: var(--CTA);
+}
+
+.guru-name {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--Primary);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.guru-jabatan {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.guru-mapel {
+    font-size: 12px;
+    color: var(--text-body);
+    margin: 4px 0 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 1200px) {
+    .guru-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .guru-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .kepsek-card {
+        grid-template-columns: 280px 1fr;
+        gap: 40px;
+    }
+
+    .page-hero-title {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        height: auto;
+        padding: 60px 0;
+    }
+
+    .page-hero-content {
+        padding: 0 24px;
+    }
+
+    .page-hero-title {
+        font-size: 34px;
+    }
+
+    .kepsek-card {
+        grid-template-columns: 1fr;
+        border-left: none;
+        border-top: 6px solid var(--CTA);
+    }
+
+    .kepsek-photo-wrap {
+        height: 320px;
+    }
+
+    .kepsek-info {
+        padding: 32px 28px;
+    }
+
+    .kepsek-name {
+        font-size: 24px;
+    }
+
+    .guru-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .kepsek-section,
+    .guru-section {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .guru-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .guru-name {
+        font-size: 13px;
+    }
+
+    .photo-initials {
+        font-size: 24px;
+    }
+}
