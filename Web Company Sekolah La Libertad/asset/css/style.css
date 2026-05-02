@@ -1284,6 +1284,10 @@ body {
     margin-bottom: 28px;
 }
 
+/* ─────────────────────────────────────────
+   RESPONSIVE PPDB FORM
+   ───────────────────────────────────────── */
+
 /* Desktop */
 @media (max-width: 1200px) {
     .ppdb-container {
