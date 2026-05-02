@@ -868,6 +868,79 @@ body {
     }
 }
 
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: var(--Accent);
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+        gap: 20px;
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    .ppdb-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .ppdb-left {
+        text-align: center;
+    }
+
+    .ppdb-form-card {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 16px; /* biar enak di tap */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-brand {
+        align-items: center;
+    }
+
+    .footer-contact li {
+        justify-content: center;
+    }
+
+    .footer-links {
+        align-items: center;
+    }
+}
+
+
+
 /* Responsive */
 @media (max-width: 992px) {
     .berita-grid {
@@ -1026,16 +1099,35 @@ body {
     background-color: rgba(230, 191, 35, 0.1);
 }
 
+.wave-info {
+    flex-grow: 1;
+}
+
 .wave-title {
     font-size: 16px;
     font-weight: 700;
     color: var(--CTA);
-    margin: 0;
+    margin: 0 0 6px 0;
 }
 
 .wave-date {
     color: #bdc3c7;
     font-size: 14px;
+    margin: 0;
+}
+
+.wave-badge {
+    background: var(--CTA);
+    color: #1c282e;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 15px;
 }
 
 .ppdb-right {
@@ -1052,6 +1144,7 @@ body {
     width: 100%;
     max-width: 450px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border-top: 4px solid var(--CTA);
 }
 
 .form-title {
@@ -1079,6 +1172,8 @@ body {
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .form-group input,
@@ -1133,8 +1228,7 @@ body {
 .form-group--success::after {
     position: absolute;
     right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 42px;
     font-size: 18px;
     pointer-events: none;
 }
@@ -1156,6 +1250,8 @@ body {
     display: inline-block;
     width: 100%;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-submit:hover:not(:disabled) {
@@ -1175,26 +1271,531 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn-submit--active {
-    box-shadow: 0 6px 20px rgba(230, 191, 35, 0.4);
+.form-section-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--Primary);
+    margin-bottom: 8px;
 }
 
-/* Loading state */
-.btn-submit--loading {
-    background-color: var(--CTA);
-    animation: buttonPulse 1s ease-in-out infinite;
+.form-section-subtitle {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 28px;
 }
 
-.btn-loader {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border: 2px solid var(--Primary);
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-right: 8px;
-    vertical-align: middle;
+/* Desktop */
+@media (max-width: 1200px) {
+    .ppdb-container {
+        gap: 50px;
+    }
+
+    .ppdb-title {
+        font-size: 36px;
+    }
+
+    .ppdb-description {
+        font-size: 15px;
+    }
+
+    .ppdb-form-card {
+        max-width: 420px;
+        padding: 35px 30px;
+    }
+
+    .form-title {
+        font-size: 26px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 13px;
+        padding: 11px 14px;
+    }
+
+    .btn-submit {
+        font-size: 15px;
+        padding: 13px 25px;
+    }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+    .ppdb-container {
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    .ppdb-left {
+        justify-content: flex-start;
+    }
+
+    .ppdb-title {
+        font-size: 32px;
+    }
+
+    .ppdb-description {
+        font-size: 14px;
+    }
+
+    .wave-title {
+        font-size: 15px;
+    }
+
+    .wave-date {
+        font-size: 13px;
+    }
+
+    .ppdb-form-card {
+        max-width: 380px;
+        padding: 30px 25px;
+    }
+
+    .form-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+
+    .ppdb-form {
+        gap: 18px;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .form-group label {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 13px;
+        padding: 10px 13px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+        padding: 12px 24px;
+        margin-top: 8px;
+    }
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+    .ppdb {
+        padding: 50px 15px;
+    }
+
+    .ppdb-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        align-items: start;
+    }
+
+    .ppdb-left {
+        order: 2;
+        justify-content: flex-start;
+    }
+
+    .ppdb-right {
+        order: 1;
+        justify-content: stretch;
+    }
+
+    .ppdb-label {
+        font-size: 11px;
+        padding-bottom: 20px;
+        margin-bottom: 10px;
+    }
+
+    .ppdb-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .ppdb-description {
+        font-size: 13px;
+        margin-bottom: 25px;
+        text-align: left;
+    }
+
+    .ppdb-waves {
+        gap: 12px;
+    }
+
+    .ppdb-wave {
+        padding: 14px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wave-info {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .wave-title {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .wave-date {
+        font-size: 12px;
+    }
+
+    .wave-badge {
+        align-self: flex-start;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .ppdb-form-card {
+        max-width: 100%;
+        padding: 25px 20px;
+        width: 100%;
+    }
+
+    .form-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .form-section-subtitle {
+        font-size: 13px;
+        margin-bottom: 22px;
+    }
+
+    .ppdb-form {
+        gap: 16px;
+    }
+
+    .form-group label {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 14px;
+        padding: 11px 12px;
+    }
+
+    .form-group--error::after,
+    .form-group--success::after {
+        right: 12px;
+        top: 42px;
+        font-size: 16px;
+    }
+
+    .btn-submit {
+        font-size: 14px;
+        padding: 12px 20px;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 600px) {
+    .ppdb {
+        padding: 40px 12px;
+    }
+
+    .ppdb-container {
+        gap: 25px;
+    }
+
+    .ppdb-label {
+        font-size: 10px;
+        padding-bottom: 15px;
+    }
+
+    .ppdb-title {
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
+
+    .ppdb-description {
+        font-size: 12px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .ppdb-waves {
+        gap: 10px;
+    }
+
+    .ppdb-wave {
+        padding: 12px 14px;
+    }
+
+    .wave-info {
+        margin-bottom: 8px;
+    }
+
+    .wave-title {
+        font-size: 13px;
+        margin-bottom: 3px;
+    }
+
+    .wave-date {
+        font-size: 11px;
+    }
+
+    .wave-badge {
+        font-size: 9px;
+        padding: 6px 12px;
+        margin-top: 8px;
+    }
+
+    .ppdb-form-card {
+        padding: 20px 15px;
+    }
+
+    .form-title {
+        font-size: 20px;
+        margin-bottom: 18px;
+    }
+
+    .form-section-subtitle {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .ppdb-form {
+        gap: 14px;
+    }
+
+    .form-group {
+        gap: 5px;
+    }
+
+    .form-group label {
+        font-size: 10px;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 13px;
+        padding: 10px 11px;
+    }
+
+    .form-group--error::after,
+    .form-group--success::after {
+        right: 10px;
+        top: 38px;
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        font-size: 13px;
+        padding: 11px 18px;
+        margin-top: 6px;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .ppdb {
+        padding: 35px 10px;
+    }
+
+    .ppdb-container {
+        gap: 20px;
+    }
+
+    .ppdb-label {
+        font-size: 9px;
+        padding-bottom: 12px;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+    }
+
+    .ppdb-title {
+        font-size: 20px;
+        line-height: 1.3;
+        margin-bottom: 10px;
+    }
+
+    .ppdb-description {
+        font-size: 11px;
+        margin-bottom: 18px;
+        line-height: 1.5;
+    }
+
+    .ppdb-waves {
+        gap: 8px;
+    }
+
+    .ppdb-wave {
+        padding: 10px 12px;
+        border-radius: 10px;
+    }
+
+    .wave-info {
+        margin-bottom: 6px;
+    }
+
+    .wave-title {
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+
+    .wave-date {
+        font-size: 10px;
+    }
+
+    .wave-badge {
+        font-size: 8px;
+        padding: 5px 10px;
+        margin-top: 6px;
+    }
+
+    .ppdb-form-card {
+        padding: 18px 12px;
+        border-radius: 15px;
+    }
+
+    .form-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .form-section-subtitle {
+        font-size: 11px;
+        margin-bottom: 18px;
+    }
+
+    .ppdb-form {
+        gap: 12px;
+    }
+
+    .form-group {
+        gap: 4px;
+    }
+
+    .form-group label {
+        font-size: 9px;
+        margin-bottom: 4px;
+        letter-spacing: 0px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 12px;
+        padding: 9px 10px;
+        border-radius: 8px;
+    }
+
+    .form-group--error::after,
+    .form-group--success::after {
+        right: 8px;
+        top: 36px;
+        font-size: 13px;
+    }
+
+    .btn-submit {
+        font-size: 12px;
+        padding: 10px 16px;
+        margin-top: 5px;
+        letter-spacing: 0.3px;
+        border-radius: 25px;
+    }
+}
+
+/* Toast Notification - Responsive */
+#ppdb-toast {
+    position: fixed;
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 90%;
+    width: 900px;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+#ppdb-toast.toast--show {
+    bottom: 30px;
+}
+
+.toast-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.toast-body strong {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.toast-body span {
+    font-size: 13px;
+    opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+    #ppdb-toast {
+        width: calc(100% - 32px);
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 14px 20px;
+    }
+
+    #ppdb-toast.toast--show {
+        bottom: 16px;
+    }
+
+    .toast-body strong {
+        font-size: 14px;
+    }
+
+    .toast-body span {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #ppdb-toast {
+        width: calc(100% - 24px);
+        bottom: 12px;
+        left: 12px;
+        transform: translateX(0);
+        padding: 12px 16px;
+    }
+
+    #ppdb-toast.toast--show {
+        bottom: 12px;
+    }
+
+    .toast-body {
+        gap: 2px;
+    }
+
+    .toast-body strong {
+        font-size: 12px;
+    }
+
+    .toast-body span {
+        font-size: 11px;
+    }
 }
 
 /* Footer Section */
@@ -2051,36 +2652,5 @@ body {
     .berita-card-image {
         height: 220px;
     }
-
-    .ppdb {
-        padding: 60px 20px;
-    }
-    
-    .ppdb-title {
-        font-size: 28px;
-    }
-    
-    .ppdb-description {
-        font-size: 14px;
-    }
-    
-    .ppdb-form-card {
-        padding: 30px 20px;
-    }
-    
-    .form-title {
-        font-size: 24px;
-    }
-    
-    .ppdb-waves {
-        gap: 12px;
-    }
-    
-    .ppdb-wave {
-        padding: 15px 20px;
-    }
-
-
-
     
 }
